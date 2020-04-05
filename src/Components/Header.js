@@ -16,7 +16,7 @@ const Item = styled.li`
 const TabLink = styled(Link)`
     font-size: 20px;
     font-weight: 600;
-    border-bottom: 3px solid ${props => props.current ? 'red' : 'transparent'};
+    border-bottom: 3px solid ${props => props.activated ? 'red' : 'transparent'};
     padding: 15px 10px;
     margin-right: 5px;
     display: flex;
@@ -29,13 +29,13 @@ const Header = props => {
     return (
     <List>
         <Item>
-            <TabLink current={pathname === "/"} to="/">Home</TabLink>
+            <TabLink activated={pathname === "/" ? 1 : 0} to="/">Home</TabLink>
         </Item>
         <Item>
-            <TabLink current={pathname === "/tv"} to="/tv">TV</TabLink>
+            <TabLink activated={pathname === "/tv" ? 1 : 0} to="/tv">TV</TabLink>
         </Item>
         <Item>
-            <TabLink current={pathname === "/search"} to="/search">Search</TabLink>
+            <TabLink activated={pathname === "/search" ? 1 : 0} to="/search">Search</TabLink>
         </Item>
     </List>
 )}
