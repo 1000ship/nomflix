@@ -17,7 +17,7 @@ export default class extends React.Component {
             const { data: { results: upcoming } } = await movieApi.upcoming();
             const { data: { results: popular } } = await movieApi.popular();
             this.setState({ nowPlaying, upcoming, popular })
-            console.log( this.state )
+            console.log( nowPlaying )
         }
         catch {
             this.setState({
