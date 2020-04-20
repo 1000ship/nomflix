@@ -8,15 +8,12 @@ export default class extends React.Component {
         super(props)
         const { location: { pathname } } = props;
         this.state = {
-            movieResults: null,
-            tvResults: null,
-            searchTerm: "",
+            results: null,
             error: null,
             loading: false,
             isMovie: pathname.includes( "/movie/" ),
         }
     }
-
 
     async componentDidMount(){
         const {
