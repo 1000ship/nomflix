@@ -30,7 +30,7 @@ const SearchPresenter = ( {movieResults, tvResults, searchTerm, error, loading, 
                 <Section title="Movie Results">
                     {movieResults.map( movie =>
                             <Poster
-                            id={movie.id}
+                            key={movie.id} id={movie.id}
                             title={movie.original_title}
                             imageUrl={movie.poster_path}
                             rating={movie.vote_average}
@@ -44,11 +44,11 @@ const SearchPresenter = ( {movieResults, tvResults, searchTerm, error, loading, 
                 <Section title="TV Show Results">
                     {tvResults.map( tv =>
                         <Poster
-                            id={tv.id}
+                            key={tv.id} id={tv.id}
                             title={tv.original_name}
                             imageUrl={tv.poster_path}
                             rating={tv.vote_average}
-                            year={tv.first_air_date.substr(0,4)}
+                            year={ tv.first_air_date.substr ? tv.first_air_date.substr(0,4) : '' }
                             isMovie={false}
                         ></Poster>
                     )}

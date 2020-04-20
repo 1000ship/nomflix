@@ -16,7 +16,7 @@ const TVPresenter = ({topRated, popular, airingToday, error, loading}) => loadin
             <Section title="Now Playing" children={
                 topRated.map(tv => 
                     <Poster
-                        id={tv.id}
+                        key={tv.id} id={tv.id}
                         title={tv.original_name}
                         imageUrl={tv.poster_path}
                         rating={tv.vote_average}
@@ -30,7 +30,7 @@ const TVPresenter = ({topRated, popular, airingToday, error, loading}) => loadin
             <Section title="Now Playing" children={
                 popular.map(tv => 
                     <Poster
-                        id={tv.id}
+                        key={tv.id} id={tv.id}
                         title={tv.original_name}
                         imageUrl={tv.poster_path}
                         rating={tv.vote_average}
@@ -44,7 +44,7 @@ const TVPresenter = ({topRated, popular, airingToday, error, loading}) => loadin
             <Section title="Now Playing" children={
                 airingToday.map(tv => 
                     <Poster
-                        id={tv.id}
+                        key={tv.id} id={tv.id}
                         title={tv.original_name}
                         imageUrl={tv.poster_path}
                         rating={tv.vote_average}

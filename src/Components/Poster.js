@@ -4,18 +4,40 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const Container = styled.div`
+    font-size: 12px;
+
+    transition: 0.3s;
+    &:hover {
+        transform: scale(1.1);
+    }
 `
 
-const ImageContainer = styled.div``
+const ImageContainer = styled.div`
+    margin-bottom: 5px;
+`
 
 const Image = styled.div`
+    background-image: url(${props => props.bgUrl ? `https://image.tmdb.org/t/p/w300/${props.bgUrl}` : ``});
+    background-size: cover;
+    height: 200px;
+    border-radius: 4px;
+    background-position: center center;
+    margin-bottom: 3px;
 `
 
-const Rating = styled.span``
+const Rating = styled.span`
+    display: block;
+`
 
-const Title = styled.span``
+const Title = styled.span`
+    display: block;
+    margin-bottom: 3px;
+`
 
-const Year = styled.span``
+const Year = styled.span`
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+`
 
 
 const Poster = ({id, imageUrl, title, rating, year, isMovie = false}) => (
