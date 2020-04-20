@@ -10,6 +10,7 @@ const List = styled.ul`
     width: 100%;
     background-color: rgba( 20, 20, 20, 0.7 );
     padding: 0px 10px;
+    z-index: 1; /* always on the top, sometimes, transition elements cover it up */
 `
 const Item = styled.li`
 `

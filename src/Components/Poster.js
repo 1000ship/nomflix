@@ -32,6 +32,7 @@ const Rating = styled.span`
 const Title = styled.span`
     display: block;
     margin-bottom: 3px;
+    font-weight: 600;
 `
 
 const Year = styled.span`
