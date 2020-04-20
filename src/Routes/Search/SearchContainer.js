@@ -6,16 +6,24 @@ export default class extends React.Component {
     state = {
         movieResults: null,
         tvResults: null,
-        searchTerm: "test",
+        searchTerm: "",
         error: null,
         loading: false,
     }
 
     componentDidMount () {
-        this.handleSubmit()
+        // this.handleSubmit()
     }
 
-    handleSubmit = () => {
+    updateTerm = (event) => {
+        const {target: {value}} = event;
+        this.setState({
+            searchTerm: value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
         const {searchTerm} = this.state;
         if( searchTerm !== "" )
             this.searchByTerm();
@@ -25,9 +33,11 @@ export default class extends React.Component {
         const {searchTerm} = this.state;
         try {
             this.setState({ loading: true })
-            const movieResults = await movieApi.search( searchTerm );
-            const tvResults = await tvApi.search( searchTerm );
-            console.log( movieResults, tvResults )
+            const {data:{results: movieResults}} = await movieApi.search( searchTerm );
+            const {data:{results: tvResults}} = await tvApi.search( searchTerm );
+            this.setState({
+                movieResults, tvResults
+            })
         } catch {
             this.setState({ error: "Can't search that term" })
         } finally {
@@ -43,6 +53,7 @@ export default class extends React.Component {
                 searchTerm={searchTerm}
                 error={error}
                 loading={loading}
-                handleSubmit={this.handleSubmit} />
+                handleSubmit={this.handleSubmit}
+                updateTerm={this.updateTerm} />
     }
 }
