@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Section from 'Components/Section'
 import Loader from 'Components/Loader';
+import Message from 'Components/Message'
 
 const Container = styled.div`
     padding: 0px 20px;
@@ -14,6 +15,7 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, error, loading }) => loa
         {nowPlaying && nowPlaying.length > 0 && <Section title="Now Playing" children={nowPlaying.map(movie => <span key={movie.id}>{movie.title}</span>)}/>}
         {upcoming && upcoming.length > 0 && <Section title="Now Playing" children={upcoming.map(movie => <span key={movie.id}>{movie.title}</span>)}/>}
         {popular && popular.length > 0 && <Section title="Now Playing" children={popular.map(movie => <span key={movie.id}>{movie.title}</span>)}/>}
+        {error && <Message text={error} color="#e74c3c"></Message>}
     </Container>
 );
 
