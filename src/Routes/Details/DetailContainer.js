@@ -10,7 +10,7 @@ export default class extends React.Component {
         this.state = {
             results: null,
             error: null,
-            loading: false,
+            loading: true,
             isMovie: pathname.includes( "/movie/" ),
         }
     }
@@ -20,23 +20,23 @@ export default class extends React.Component {
             match: { params: { id } },
             history: { push },
         } = this.props;
-        const {isMovie} = this.props
+        const { isMovie } = this.state
         const parsedId = parseInt(id)
         if( isNaN(parsedId) )
             return push("/");
 
-        let result = null;
+        let results = null;
         try {
             this.setState({ loading: true })
             if( isMovie ){
                 const request = await movieApi.movieDetail( id );
-                result = request.data;
+                results = request.data;
             } else {
                 const request = await tvApi.showDetail( id );
-                result = request.data;
+                results = request.data;
             }
-            console.log( result )
-        } catch {
+            this.setState({results})
+        } catch(e) {
             this.setState({
                 error: "Can't find details"
             })
@@ -46,11 +46,10 @@ export default class extends React.Component {
     }
 
     render () {
-        const { movieResults, tvResults, searchTerm, error, loading} = this.state;
+        const { results, error, loading } = this.state;
+        console.log(results)
         return <DetailPresenter
-                movieResults={movieResults}
-                tvResults={tvResults}
-                searchTerm={searchTerm}
+                results={results}
                 error={error}
                 loading={loading} />
     }

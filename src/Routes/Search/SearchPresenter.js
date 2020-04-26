@@ -5,9 +5,10 @@ import Loader from 'Components/Loader'
 import Section from 'Components/Section'
 import Message from 'Components/Message'
 import Poster from 'Components/Poster'
+import { Helmet } from 'react-helmet'
 
 const Container = styled.div`
-    padding: 0px 20px;
+    padding: 20px 20px;
 `
 
 const Form = styled.form`
@@ -22,6 +23,9 @@ const Input = styled.input`
 
 const SearchPresenter = ( {movieResults, tvResults, searchTerm, error, loading, handleSubmit, updateTerm }) => (
     <Container>
+        <Helmet>
+            <title>Search | Nomflix</title>
+        </Helmet>
         <Form onSubmit={handleSubmit}>
             <Input placeholder="Search Movies or TV Shows..." value={searchTerm} onChange={updateTerm}/>
         </Form>
@@ -48,7 +52,7 @@ const SearchPresenter = ( {movieResults, tvResults, searchTerm, error, loading, 
                             title={tv.original_name}
                             imageUrl={tv.poster_path}
                             rating={tv.vote_average}
-                            year={ tv.first_air_date.substr ? tv.first_air_date.substr(0,4) : '' }
+                            year={ tv.first_air_date && tv.first_air_date.length >= 4 ? tv.first_air_date.substr(0,4) : '' }
                             isMovie={false}
                         ></Poster>
                     )}
