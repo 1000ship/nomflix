@@ -2,7 +2,6 @@
   "name": "nomflix",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -29,7 +28,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "http://1000ship.gtihub.io/nomflix",
+  "homepage": "http://nomflix.1000ship.me",
   "browserslist": {
     "production": [
       ">0.2%",
