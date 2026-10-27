@@ -6,7 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "0.21.1",
+    "axios": "^0.34.0",
     "gh-pages": "^2.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build",
-    "predeploy": "yarn run build" 
+    "predeploy": "yarn run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "browserslist": "^4.28.7",
+    "svgo": "^2.8.4"
   }
 }
